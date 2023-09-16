@@ -1,4 +1,13 @@
-﻿public sealed class Vehicle
+﻿Vehicle Komas = new Vehicle();
+Komas.AddDetail("Колёса");
+Komas.AddDetail("Руль");
+Komas.AddDetail("Окна");
+Komas.AddDetail("Двери");   
+
+Komas["Двери"] = new DetailPart {DetailName = "Копот"};
+
+
+public sealed class Vehicle
 {
     private readonly List<DetailPart> _detailsList;
     public string Name { get; set; }
@@ -23,7 +32,6 @@
             _detailsList.Remove(detail);
         }
     }
-
     public bool ChangeDescription(string name, string newDesctription)
     {
         DetailPart DetailWithNewDesc = _detailsList.Find(item => item.DetailName == name);
@@ -32,18 +40,20 @@
         return true;
     }
 
-    //Индексатор
-    public DetailPart this[string name]   //У индексатора нет названия и используем this
+    //Индексатор - используются чтоб проиндексировать какой либо массив и изменить их свойства при необходимости
+    public DetailPart this[string name]   //У индексатора нет названия и используем this 
+    //Данные индекстор в классе позволяет изменить Имя уже существующей детали
     {
         get => _detailsList.Find(item => item.DetailName == name);
         set { DetailPart detailpart = _detailsList.Find(item => item.DetailName == name); detailpart.DetailName = value.DetailName; }
     }
-
     public IEnumerator<DetailPart> GetEnumerator()
     {
         foreach(DetailPart detailPart in _detailsList)
             yield return detailPart;
+            
     }
+    
 }
 public sealed class DetailPart
 {
