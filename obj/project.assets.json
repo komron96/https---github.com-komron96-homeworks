@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Ком\\.nuget\\packages\\": {}
+    "C:\\Users\\komron.saidaliev\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ком\\Desktop\\homework\\homeworks.csproj",
+      "projectUniqueName": "C:\\Users\\komron.saidaliev\\Desktop\\homeworks\\homeworks.csproj",
       "projectName": "homeworks",
-      "projectPath": "C:\\Users\\Ком\\Desktop\\homework\\homeworks.csproj",
-      "packagesPath": "C:\\Users\\Ком\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ком\\Desktop\\homework\\obj\\",
+      "projectPath": "C:\\Users\\komron.saidaliev\\Desktop\\homeworks\\homeworks.csproj",
+      "packagesPath": "C:\\Users\\komron.saidaliev\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\komron.saidaliev\\Desktop\\homeworks\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ком\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\komron.saidaliev\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
