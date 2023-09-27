@@ -11,21 +11,33 @@ Thread thread2 = new(Action1)
 
 static void Action1() //метод который реализует какое то событие
 {
-    Console.WriteLine("Some actions is taking place");
-}
-
-static void Action2() //метод который реализует какое то событие
-{
-    for(int i; i < 1000; i++)
+    for (int i = 0; i < 1000; i++)
     {
-        Console.WriteLine("Itteration: I");
-        Time.Sleep = 
+        Console.WriteLine("Itteration:");
+        Thread.Sleep(1000);
     }
-    
 }
 
 //task2 - Отмена управляемых потоков
 //У приложения есть MAIN трэд и есть ветки
 
-CancellationTokenSource cancell = new(); 
-CancellationToken cancellationToken = cancell.Token; //Для отмены трэда создаётся ТОКЕН(struct) который выбрасывает исключение
+CancellationTokenSource cancell = new();
+//Для отмены трэда создаётся ТОКЕН(struct) который выбрасывает исключение
+
+Thread thread3 = new(Action3);
+thread3.Start();
+
+if (Console.ReadKey().Key == ConsoleKey.Escape)
+{
+    cancell.Cancel();
+}
+void Action3(object boxedToken)
+{
+    for (int i = 0; i < 1000; i++)
+    {
+        Thread.Sleep(1000);
+        CancellationToken token = (CancellationToken) boxedToken;
+        token.ThrowIfCancellationRequested();
+        Console.WriteLine("Itteration: " + i);
+    }
+}
