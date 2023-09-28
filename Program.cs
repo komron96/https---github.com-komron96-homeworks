@@ -76,3 +76,16 @@ void Action5()
         Console.WriteLine("Aborted");
     }
 }
+
+
+//task9
+//Создаём таймер
+System.Timers.Timer timer = new(3000);
+timer.Elapsed += Elapse;
+timer.Enabled = true;
+timer.Start();
+
+static void Elapse(object? sender, ElapsedEventArgs e)
+{
+    Console.WriteLine("Timer elapsed");
+}
