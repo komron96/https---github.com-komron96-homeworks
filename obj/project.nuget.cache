@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+rtqG7hjMX1n/jrvAmRsywiA3MehGAPR8HC3edw5ZlnqR9P1A6xG8KsmYwHAWaz6QHBcMOt/yI9K2ZoZow3pjA==",
+  "dgSpecHash": "8ZGr8KXSnfC0kTH6mlAqjs7rqroDp9gZeqaYEeFz5OgzyfHaEPubsQWYJBiwakbh/c6imdf9ohVg1qzPytyNXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ком\\Desktop\\homework\\homeworks.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\komron.saidaliev\\Desktop\\homeworks\\homeworks.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\komron.saidaliev\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\komron.saidaliev\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512"
+  ],
   "logs": []
 }
