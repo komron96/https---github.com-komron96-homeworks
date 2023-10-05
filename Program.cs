@@ -6,21 +6,36 @@ class Program
 {
     static void Main()
     {
-        string connectionString = "Host=192.168.15.197;Port=5432;Username=komronsaydaliev;Password=Soe8dyu66FN76Diq;Database=core";
+        string coreConnectionString = "Host=192.168.15.197;Port=5432;Username=komronsaydaliev;Password=Soe8dyu66FN76Diq;Database=core";
+        string procardConnectionString = "Host=192.168.15.228;Port=5432;Username=komronsaydaliev;Password=Soe8dyu66FN76Diq;Database=visa";
 
         // Создаем объект класса DatabaseConnection и открываем соединение
-        DatabaseConnection dbConnection = new DatabaseConnection(connectionString);
-        NpgsqlConnection conn = dbConnection.OpenConnection();
+        DatabaseConnection coreConnection = new DatabaseConnection(coreConnectionString);
+        NpgsqlConnection coreConn = coreConnection.OpenConnection();
 
-        if (conn != null)
+        if (coreConn != null)
         {
             // Создаем объект класса DataProcessor и выполняем запросы и обработку данных
             DataProcessor dataProcessor = new DataProcessor();
-            List<string> results = dataProcessor.ExecuteQueryAndGetResults(conn);
-            dataProcessor.ReadResult(results);
+            List<string> rateResult = dataProcessor.RateQueryExecution(coreConn);
+            dataProcessor.ReadRateResult(rateResult);
 
             // Закрываем соединение
-            dbConnection.CloseConnection(conn);
+            coreConnection.CloseConnection(coreConn);
+        }
+
+
+        DatabaseConnection procardConnection = new DatabaseConnection(procardConnectionString);
+        NpgsqlConnection procardConn = procardConnection.OpenConnection();
+
+        if (procardConn != null)
+        {
+            DataProcessor dataProcessor = new DataProcessor();
+            List<string> fimiResult = dataProcessor.FimiQueryExecution(procardConn);
+            dataProcessor.ReadFimiResult(fimiResult);
+
+            // Закрываем соединение
+            procardConnection.CloseConnection(procardConn);
         }
     }
 }
