@@ -1,0 +1,7 @@
+﻿1) select *, age as student_age from student
+order by name
+limit 5
+
+2) select id, name, age as student_age from student
+order by name
+limit 5
