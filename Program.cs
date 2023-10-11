@@ -17,8 +17,8 @@ class Program
         {
             // Создаем объект класса DataProcessor и выполняем запросы и обработку данных
             DataProcessor dataProcessor = new DataProcessor();
-            List<string> rateResult = dataProcessor.RateQueryExecution(coreConn);
-            dataProcessor.ReadRateResult(rateResult);
+            List<CurrencyRate> rateResult = dataProcessor.RateQueryExecution(coreConn);
+            // dataProcessor.ReadRateResult(rateResult);
 
             // Закрываем соединение
             coreConnection.CloseConnection(coreConn);
@@ -31,8 +31,8 @@ class Program
         if (procardConn != null)
         {
             DataProcessor dataProcessor = new DataProcessor();
-            List<string> fimiResult = dataProcessor.FimiQueryExecution(procardConn);
-            dataProcessor.ReadFimiResult(fimiResult);
+            List<FimiTransaction> fimiResult = dataProcessor.FimiQueryExecution(procardConn);
+            // dataProcessor.ReadFimiResult(fimiResult);
 
             // Закрываем соединение
             procardConnection.CloseConnection(procardConn);
