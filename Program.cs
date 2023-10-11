@@ -1,6 +1,6 @@
 using Npgsql;
 using System;
-using System.Collections.Generic;
+
 
 class Program
 {
@@ -16,9 +16,9 @@ class Program
         if (coreConn != null)
         {
             // Создаем объект класса DataProcessor и выполняем запросы и обработку данных
-            DataProcessor dataProcessor = new DataProcessor();
-            List<CurrencyRate> rateResult = dataProcessor.RateQueryExecution(coreConn);
-            // dataProcessor.ReadRateResult(rateResult);
+            RateProcess rateProcessorVariable = new RateProcess();
+            List<CurrencyRate> rateResult = rateProcessorVariable.RateQueryExecution(coreConn);
+            rateProcessorVariable.PrintRateResult();
 
             // Закрываем соединение
             coreConnection.CloseConnection(coreConn);
@@ -30,9 +30,9 @@ class Program
 
         if (procardConn != null)
         {
-            DataProcessor dataProcessor = new DataProcessor();
-            List<FimiTransaction> fimiResult = dataProcessor.FimiQueryExecution(procardConn);
-            // dataProcessor.ReadFimiResult(fimiResult);
+            FimiProcess fimiProcessorVariable = new FimiProcess();
+            List<FimiTransaction> fimiResult = fimiProcessorVariable.FimiQueryExecution(procardConn);
+            fimiProcessorVariable.PrintFimiResult();
 
             // Закрываем соединение
             procardConnection.CloseConnection(procardConn);
