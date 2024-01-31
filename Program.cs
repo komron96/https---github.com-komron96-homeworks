@@ -13,6 +13,7 @@ public class PaymentSystem
             decimal fee = extraMonths * extraPayment * amount;
             return fee;
         }
+        
     }
     public decimal Payment(string productName, decimal amount, string phoneNumber, decimal creditRange, int period)
     {
@@ -34,8 +35,10 @@ public class PaymentSystem
         {
             throw new ArgumentException($"Wrong produc");
         }
+
+        Console.WriteLine($"{phoneNumber}: Вы успешно купили {productName} на сумму {totalAmount}, период рассчроки составляет {period} месяцев");
+
         return totalAmount;
     }
-
 
 }
